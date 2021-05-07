@@ -1,41 +1,30 @@
-import React, { useContext } from 'react'
+import React, {createContext, useContext, useState} from 'react'
 
-const themes = {
-  light: {
-    foreground: "#000000",
-    background: "#eeeeee"
-  },
-  dark: {
-    foreground: "#ffffff",
-    background: "#222222"
-  }
-};
+const content = createContext(null)
 
-const ThemeContext = React.createContext(themes.light);
+const {Provider} = content
 
-function App() {
-  return (
-    <ThemeContext.Provider value={themes.dark}>
-      <Toolbar />
-    </ThemeContext.Provider>
-  );
+const  Deep = () => {
+  const value = useContext(content)
+  return <div>最内层组件：{value}</div>
 }
 
-function Toolbar(props) {
-  return (
-    <div>
-      <ThemedButton />
-    </div>
-  );
+const Child = () => {
+  return <div>
+    <Deep></Deep>
+  </div>
 }
 
-function ThemedButton() {
-  const theme = useContext(ThemeContext);
-  return (
-    <button style={{ background: theme.background, color: theme.foreground }}>
-      I am styled by theme context!
-    </button>
-  );
+const Case19 = () => {
+  const [value, setValue] = useState('hello')
+  
+  return  <div>
+      <Provider value={value}>
+        最外层组件：
+        <button onClick={() => setValue(x => Math.random())}>Click</button>
+        <Child></Child>
+    </Provider>
+  </div>
 }
 
-export default App
+export default Case19

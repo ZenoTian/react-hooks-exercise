@@ -12,7 +12,10 @@ export default function Case15 () {
     let {a, b} = ref.current
     if (a !== stateA && b !== stateB) {
       console.log('a和b都改变了')
-      ref.current={a, b}
+      ref.current={
+        a: stateA,
+        b: stateB
+      }
     }
   }, [stateA, stateB])
 
