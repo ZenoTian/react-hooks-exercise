@@ -6,7 +6,7 @@ const request = () => new Promise((resolve => {
   }, 5000)
 }))
 
-export default function Case11  () {
+function Page () {
   const [count, setCount] = useState(0)
   useEffect((async () => {
     let res = await request()
@@ -15,6 +15,18 @@ export default function Case11  () {
   return (
     <div>
       {count}
+    </div>
+  )
+}
+
+export default function Case11() {
+  const [visible, setVisible] = useState(false)
+  return (
+    <div>
+      <button onClick={() => setVisible(prev => !prev)}>切换</button>
+      {
+        visible && <Page></Page>
+      }
     </div>
   )
 }

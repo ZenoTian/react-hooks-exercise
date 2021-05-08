@@ -4,14 +4,14 @@ export default function Case8() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    setTimeout(() => {
-      setCount(x => x + 1)
-    }, 1000)
-  })
+    document.title = `更新${count}次`
+  }, [count])
 
   return (
     <div>
-      count is: {count}
+      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+        count is: {count}
+      </button>
     </div>
   )
 }

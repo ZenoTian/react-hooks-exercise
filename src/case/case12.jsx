@@ -6,7 +6,7 @@ const request = () => new Promise((resolve => {
   }, 5000)
 }))
 
-export default function Case12 () {
+function Page () {
   const [count, setCount] = useState(0)
   useEffect(() => {
     let isCancelled = false;
@@ -20,9 +20,23 @@ export default function Case12 () {
       isCancelled = true
     }
   }, [])
+
   return (
     <div>
       {count}
+    </div>
+  )
+}
+
+export default function Case12 () {
+  const [visible, setVisible] = useState(false)
+  
+  return (
+    <div>
+      <button onClick={() => setVisible(prev => !prev)}>切换</button>
+      {
+        visible && <Page></Page>
+      }
     </div>
   )
 }
