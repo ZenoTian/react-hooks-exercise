@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react'
 
 
-export default function case24() {
+export default function case23() {
   const [count, setCount] = useState(0)
   useEffect(() => {
     console.log('useEffect', new Date().getTime())
@@ -20,6 +20,6 @@ export default function case24() {
     }
   }, [])
   return <div>
-    case24
+    case23
   </div>
 }

@@ -1,27 +1,24 @@
-import React, {useState, useEffect} from 'react'
+import React, {useReducer} from 'react'
+const initialState = {count: 0};
 
-// 把这个当做请求
-const request = (num) => new Promise((resolve => {
-  setTimeout(() => {
-    resolve(num+1)
-  }, 5000)
-}))
-
-export default function Case21() {
-  const [count, setCount] = useState(0)
-  const api = async (num = 0) => {
-    let res = await request(num)
-    setCount(res)
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1}
+    case 'decrement':
+      return {count: state.count - 1}
+    default:
+      throw new Error()
   }
+}
 
-  useEffect(() => {
-      api()
-  }, [])
-
+export default function Case24() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <div className="App">
-      <button onClick={api(count)}>点击请求不一样的参数</button>
-      <h1>{count}</h1>
-    </div>
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+    </>
   )
 }

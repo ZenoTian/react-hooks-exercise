@@ -26,7 +26,7 @@ import Case20 from './case/case20'
 import Case21 from './case/case21'
 import Case22 from './case/case22'
 import Case23 from './case/case23'
-import Case25 from './case/case25'
+import Case24 from './case/case24'
 
 function App() {
   return (
@@ -55,7 +55,7 @@ function App() {
         <li><Link to="/case21">case21</Link></li>
         <li><Link to="/case22">case22</Link></li>
         <li><Link to="/case23">case23</Link></li>
-        <li><Link to="/case25">case25</Link></li>
+        <li><Link to="/case24">case24</Link></li>
       </ul>
       <div>
         <Router primary={false}>
@@ -82,7 +82,7 @@ function App() {
           <Case21 path="/case21"></Case21>
           <Case22 path="/case22"></Case22>
           <Case23 path="/case23"></Case23>
-          <Case25 path="/case25"></Case25>
+          <Case24 path="/case24"></Case24>
         </Router>
       </div>
     </div>
