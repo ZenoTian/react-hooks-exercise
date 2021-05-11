@@ -7,7 +7,7 @@ export default function Case1() {
     <div>
       Count: {count}
       <button onClick={() => setCount(1)}>Reset</button>
-      <button onClick={() => setCount(count + 1)}>-</button>
+      <button onClick={() => setCount(count + 1)}>+1</button>
     </div>
   )
 }

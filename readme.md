@@ -20,6 +20,7 @@
 - [useMemo](#useMemo)
 - [useCallback](#useCallback)
 - [useLayoutEffect](#useLayoutEffect)
+- [useReducer](#useReducer)
 
 ## 正文
 
@@ -263,31 +264,11 @@ function Case6() {
 
 #### useEffect场景3：清除
 
-Case9：
-问题：以下代码是如何执行的？
-
-```jsx
-export default function Case9() {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setCount(x => x + 1)
-    }, 1000)
-  })
-
-  return (
-    <div>
-      count is: {count}
-    </div>
-  )
-}
-```
-
-`Case9`除了添加依赖之外还可以通过`cleanup`来达成只执行一次的目的。
-也就是通过`useEffect`返回一个函数来清除副作用
+useEffect的返回值是一个函数，可以用来清除定时器、socket、事件订阅、请求等..
 
 Case10：
+
+Case10卸载时会清除定时器
 
 ```jsx
 function Case10() {
@@ -309,10 +290,6 @@ function Case10() {
   )
 }
 ```
-
-useEffect的返回值是一个函数，可以用来清除定时器、socket、事件订阅、请求等..
-
-#### useEffect场景4：在页面加载完之前切换路由
 
 Case11：
 
@@ -603,7 +580,7 @@ const Input = (props, ref) => {
 
   return <input
     onChange={(e) => props.onChange(e.target.value)}
-    ref={ref}
+    ref={inputRef}
     type="text" />
 }
 
