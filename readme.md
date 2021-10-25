@@ -31,7 +31,7 @@
 基本语法：
 
 ```jsx
-const [state, setState] = useState(initialState);
+const [state, setState] = useState(initialState)
 ```
 
 ##### useState 的返回值和参数?
@@ -166,6 +166,12 @@ setUser(x => {...x, name: 'a'})
 ```
 
 ### <span id="useEffect">useEffect</span>
+
+#### useEffect 的返回值和参数
+
+#### useEffect 的运行时机
+
+  TODO: 文字+图
 
 什么是副作用：
 

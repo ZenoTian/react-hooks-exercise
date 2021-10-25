@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, forwardRef } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import PageD from './pageD'
+import PageA from './PageA'
 import { Router, Link } from '@reach/router';
 import Case1 from './case/case1'
 import Case2 from './case/case2'
@@ -11,7 +12,6 @@ import Case5 from './case/case5'
 import Case6 from './case/case6'
 import Case7 from './case/case7'
 import Case8 from './case/case8'
-import Case9 from './case/case9'
 import Case10 from './case/case10'
 import Case11 from './case/case11'
 import Case12 from './case/case12'
@@ -40,7 +40,6 @@ function App() {
         <li><Link to="/case6">case6</Link></li>
         <li><Link to="/case7">case7</Link></li>
         <li><Link to="/case8">case8</Link></li>
-        <li><Link to="/case9">case9</Link></li>
         <li><Link to="/case10">case10</Link></li>
         <li><Link to="/case11">case11</Link></li>
         <li><Link to="/case12">case12</Link></li>
@@ -58,6 +57,7 @@ function App() {
         <li><Link to="/case24">case24</Link></li>
       </ul>
       <div>
+        <PageA></PageA>
         <Router primary={false}>
           <Case1 path="/case1"></Case1>
           <Case2 path="/case2"></Case2>
@@ -67,7 +67,6 @@ function App() {
           <Case6 path="/case6"></Case6>
           <Case7 path="/case7"></Case7>
           <Case8 path="/case8"></Case8>
-          <Case9 path="/case9"></Case9>
           <Case10 path="/case10"></Case10>
           <Case11 path="/case11"></Case11>
           <Case12 path="/case12"></Case12>
